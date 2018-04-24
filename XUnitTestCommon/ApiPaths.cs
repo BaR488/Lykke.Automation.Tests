@@ -96,6 +96,33 @@ namespace XUnitTestCommon
         public static readonly string ALGO_STORE_ADD_TO_PUBLIC = "/api/v1/clientData/addToPublic";
         public static readonly string ALGO_STORE_STATISTICS = "/api/v1/statistics";
 
+        #region Algo Store User Permissions
+
+        public static readonly string ALGO_STORE_USER_PERMISSIONS_GET_ALL_PERMSSIONS = "/api/v1/permissions/getAll";
+        public static readonly string ALGO_STORE_USER_PERMISSIONS_GET_PERMISSIONS_BY_ID = "/api/v1/permissions/getById";
+        public static readonly string ALGO_STORE_USER_PERMISSIONS_GET_PERMISSIONS_BY_ROLE_ID = "/api/v1/permissions/getByRoleId";
+        public static readonly string ALGO_STORE_USER_PERMISSIONS_SAVE_PERMISSION = "/api/v1/permissions/savePermission";
+        public static readonly string ALGO_STORE_USER_PERMISSIONS_ASSIGN_PERMISSION = "/api/v1/permissions/assignPermission";
+        public static readonly string ALGO_STORE_USER_PERMISSIONS_ASSIGN_PERMISSIONS = "/api/v1/permissions/assignPermissions";
+        public static readonly string ALGO_STORE_USER_PERMISSIONS_REVOKE_PERMISSION = "/api/v1/permissions/revokePermission";
+        public static readonly string ALGO_STORE_USER_PERMISSIONS_REVOKE_PERMISSIONS = "/api/v1/permissions/revokePermissions";
+        public static readonly string ALGO_STORE_USER_PERMISSIONS_DELETE_PERMISSION = "/api/v1/permissions/deletePermission";
+
+        #endregion
+
+        #region Algo Store User Roles
+
+        public static readonly string ALGO_STORE_USER_ROLES_GET_ALL_ROLES = "/api/v1/roles/getAll";
+        public static readonly string ALGO_STORE_USER_ROLES_GET_ROLE_BY_ID = "/api/v1/roles/getById";
+        public static readonly string ALGO_STORE_USER_ROLES_GET_ROLE_BY_CLIENT_ID = "/api/v1/roles/getByClientId";
+        public static readonly string ALGO_STORE_USER_ROLES_SAVE_ROLE = "/api/v1/roles/saveRole";
+        public static readonly string ALGO_STORE_USER_ROLES_ASSIGN_ROLE = "/api/v1/roles/assignRole";
+        public static readonly string ALGO_STORE_USER_ROLES_REVOKE_ROLE = "/api/v1/roles/revokeRole";
+        public static readonly string ALGO_STORE_USER_ROLES_VERIFY_ROLE = "/api/v1/roles/verifyRole";
+        public static readonly string ALGO_STORE_USER_ROLES_DELETE_ROLE = "/api/v1/roles/deleteRole";
+
+        #endregion
+
         public static String WALLET_BALANCE_BY_ASSET_ID(string walletId, string assetId)
         {
             return String.Format(walletBalanceByAssetID, walletId, assetId);

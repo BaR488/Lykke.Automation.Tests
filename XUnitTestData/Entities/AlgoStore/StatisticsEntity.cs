@@ -8,7 +8,7 @@ namespace XUnitTestData.Entities.AlgoStore
 {
     public class StatisticsEntity : TableEntity, IStatisticss
     {
-        public string Id => this.RowKey;
+        public string Id => RowKey;
 
         public int BuildImageId { get ; set ; }
         public long ImageId { get ; set; }

@@ -38,6 +38,7 @@ namespace AlgoStoreData.Fixtures
         public GenericRepository<PublicsAlgosTableEntity, IPublicAlgosTable> PublicAlgosRepository;
         public GenericRepository<StatisticsEntity, IStatisticss> StatisticsRepository;
         public GenericRepository<AlgoInstanceStatisticsEntity, IAlgoInstanceStatistics> AlgoInstanceStaticsticsRepository;
+        public GenericRepository<UserPermissionsEntity, IUserPermissions> UserPermissionsRepository;
         public List<BuilInitialDataObjectDTO> PreStoredMetadata;
         public AlgoBlobRepository BlobRepository;
         public static string CSharpAlgoStringFile = Path.Combine(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar, "AlgoStore" + Path.DirectorySeparatorChar, "TestData" + Path.DirectorySeparatorChar, "DummyAlgo.txt");
@@ -71,17 +72,18 @@ namespace AlgoStoreData.Fixtures
             builderDB.RegisterModule(new AlgoStoreTestModule(_configBuilderDB));
             _containerDB = builderDB.Build();
 
-            this.MetaDataRepository = RepositoryUtils.ResolveGenericRepository<MetaDataEntity, IMetaData>(this._containerDB);
-            this.RuntimeDataRepository = RepositoryUtils.ResolveGenericRepository<RuntimeDataEntity, IStatistics>(this._containerDB);
-            this.ClientInstanceRepository = RepositoryUtils.ResolveGenericRepository<ClientInstanceEntity, IClientInstance>(this._containerDB);
-            this.AlgoRatingsRepository = RepositoryUtils.ResolveGenericRepository<AlgoRatingsTableEntity, IAlgoRatingsTable>(this._containerDB);
-            this.AlgoApiLogRepository = RepositoryUtils.ResolveGenericRepository<AlgoStoreApiLogEntity, IAlgoStoreApiLog>(this._containerDB);
-            this.CSharpAlgoTemplateLogRepository = RepositoryUtils.ResolveGenericRepository<CSharpAlgoTemplateLogEntity, ICSharpAlgoTemplateLog>(this._containerDB);
-            this.CSharpAlgoTemplateUserLogRepository = RepositoryUtils.ResolveGenericRepository<CSharpAlgoTemplateUserLogEntity, ICSharpAlgoTemplateUserLog>(this._containerDB);
-            this.PublicAlgosRepository = RepositoryUtils.ResolveGenericRepository<PublicsAlgosTableEntity, IPublicAlgosTable>(this._containerDB);
-            this.StatisticsRepository = RepositoryUtils.ResolveGenericRepository<StatisticsEntity, IStatisticss>(this._containerDB);
-            this.BlobRepository = new AlgoBlobRepository(_configBuilderDB.Config["TableStorageConnectionString"], timespan);
-            this.AlgoInstanceStaticsticsRepository = RepositoryUtils.ResolveGenericRepository<AlgoInstanceStatisticsEntity, IAlgoInstanceStatistics>(this._containerDB);
+            MetaDataRepository = RepositoryUtils.ResolveGenericRepository<MetaDataEntity, IMetaData>(this._containerDB);
+            RuntimeDataRepository = RepositoryUtils.ResolveGenericRepository<RuntimeDataEntity, IStatistics>(this._containerDB);
+            ClientInstanceRepository = RepositoryUtils.ResolveGenericRepository<ClientInstanceEntity, IClientInstance>(this._containerDB);
+            AlgoRatingsRepository = RepositoryUtils.ResolveGenericRepository<AlgoRatingsTableEntity, IAlgoRatingsTable>(this._containerDB);
+            AlgoApiLogRepository = RepositoryUtils.ResolveGenericRepository<AlgoStoreApiLogEntity, IAlgoStoreApiLog>(this._containerDB);
+            CSharpAlgoTemplateLogRepository = RepositoryUtils.ResolveGenericRepository<CSharpAlgoTemplateLogEntity, ICSharpAlgoTemplateLog>(this._containerDB);
+            CSharpAlgoTemplateUserLogRepository = RepositoryUtils.ResolveGenericRepository<CSharpAlgoTemplateUserLogEntity, ICSharpAlgoTemplateUserLog>(this._containerDB);
+            PublicAlgosRepository = RepositoryUtils.ResolveGenericRepository<PublicsAlgosTableEntity, IPublicAlgosTable>(this._containerDB);
+            StatisticsRepository = RepositoryUtils.ResolveGenericRepository<StatisticsEntity, IStatisticss>(this._containerDB);
+            BlobRepository = new AlgoBlobRepository(_configBuilderDB.Config["TableStorageConnectionString"], timespan);
+            AlgoInstanceStaticsticsRepository = RepositoryUtils.ResolveGenericRepository<AlgoInstanceStatisticsEntity, IAlgoInstanceStatistics>(this._containerDB);
+            UserPermissionsRepository = RepositoryUtils.ResolveGenericRepository<UserPermissionsEntity, IUserPermissions>(this._containerDB);
         }
 
         private async Task PrepareTestData()

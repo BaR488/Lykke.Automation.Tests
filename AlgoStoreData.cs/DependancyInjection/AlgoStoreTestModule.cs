@@ -74,6 +74,11 @@ namespace AlgoStoreData.DependancyInjection
                 new AzureTableStorage<AlgoInstanceStatisticsEntity>(
                     _configBuilder.Config["TableStorageConnectionString"], "AlgoInstanceStatistics", null, timespan), "AlgoInstanceStatistics"))
             .As<IDictionaryRepository<IAlgoInstanceStatistics>>();
+
+            builder.Register(c => new GenericRepository<UserPermissionsEntity, IUserPermissions>(
+                new AzureTableStorage<UserPermissionsEntity>(
+                    _configBuilder.Config["TableStorageConnectionString"], "UserPermisssions", null, timespan), "UserPermisssions"))
+            .As<IDictionaryRepository<IUserPermissions>>();
         }
     }
 }
